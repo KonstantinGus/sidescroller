@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgxvd3yab0g8k"]
+
+[ext_resource type="Script" path="res://box_1.gd" id="1_611ek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyl4m"]
+size = Vector2(20, 135.75)
+
+[node name="box1" type="AnimatableBody2D"]
+script = ExtResource("1_611ek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 273)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_hyl4m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -41.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 544.0

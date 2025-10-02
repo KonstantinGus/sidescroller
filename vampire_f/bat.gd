@@ -1,0 +1,11 @@
+extends AnimatableBody2D
+
+
+const SPEED = 200
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	position.x -= SPEED *delta
+	if position.x < -650:
+		print("bat gone")
+		queue_free()

@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://l3jpaddku2fd"]
+
+[ext_resource type="PackedScene" uid="uid://caykt53ijetv8" path="res://player.tscn" id="1_5itfk"]
+[ext_resource type="Script" path="res://killzone.gd" id="2_nwacb"]
+[ext_resource type="Script" path="res://box_spawner.gd" id="4_5yvox"]
+[ext_resource type="PackedScene" uid="uid://cgxvd3yab0g8k" path="res://box_1.tscn" id="4_mme2q"]
+[ext_resource type="PackedScene" uid="uid://ctx552675ohgw" path="res://bat_3.tscn" id="5_2p4xc"]
+[ext_resource type="Script" path="res://bat_spawner.gd" id="5_n1veh"]
+[ext_resource type="Script" path="res://score_timer.gd" id="7_6tr5f"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cgdnh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jfxr2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3akja"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 293)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+shape = SubResource("WorldBoundaryShape2D_cgdnh")
+
+[node name="ColorRect" type="ColorRect" parent="ground/CollisionShape2D"]
+offset_left = -578.0
+offset_top = -8.0
+offset_right = 573.0
+offset_bottom = 32.0
+
+[node name="Player" parent="." instance=ExtResource("1_5itfk")]
+position = Vector2(-25, 192)
+
+[node name="invisible_wall" type="StaticBody2D" parent="."]
+position = Vector2(540, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_wall"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_jfxr2")
+
+[node name="killzone" type="Area2D" parent="."]
+script = ExtResource("2_nwacb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-581, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_3akja")
+
+[node name="box1" parent="." instance=ExtResource("4_mme2q")]
+position = Vector2(446, 50)
+
+[node name="boxSpawner" type="Node2D" parent="."]
+position = Vector2(3, 0)
+script = ExtResource("4_5yvox")
+
+[node name="batSpawner" type="Node2D" parent="."]
+position = Vector2(3, 0)
+script = ExtResource("5_n1veh")
+
+[node name="bat3" parent="." instance=ExtResource("5_2p4xc")]
+position = Vector2(159, 239)
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("7_6tr5f")
+
+[node name="timer_label" type="Label" parent="ScoreTimer"]
+offset_left = -525.0
+offset_top = -294.0
+offset_right = -485.0
+offset_bottom = -271.0
+theme_override_font_sizes/font_size = 50
+text = "test"
+
+[connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="bat3" to="Player" method="_on_bat_3_body_entered"]

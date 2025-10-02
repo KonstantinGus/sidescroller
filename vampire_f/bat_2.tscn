@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dya1oiks3i8dd"]
+
+[ext_resource type="Script" path="res://bat_2.gd" id="1_4fbpg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vov2n"]
+radius = 16.0312
+
+[node name="bat2" type="CharacterBody2D"]
+script = ExtResource("1_4fbpg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 19)
+shape = SubResource("CircleShape2D_vov2n")

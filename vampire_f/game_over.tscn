@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsge0pejfu1df"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_xub6q"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xub6q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 256.0
+offset_right = 503.0
+offset_bottom = 305.0
+scale = Vector2(2.68, 2.32)
+text = "Game Over,
+Press 'R' to go again"
+horizontal_alignment = 1
+
+[node name="FinalTimeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 106.0
+offset_right = 494.0
+offset_bottom = 155.0
+scale = Vector2(2.68, 2.32)
+text = "Game Over,
+Press 'R' to go again"
+horizontal_alignment = 1
+
+[node name="restartTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="restartTimer" to="." method="_on_restart_timer_timeout"]
