@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l3jpaddku2fd"]
+[gd_scene load_steps=12 format=3 uid="uid://l3jpaddku2fd"]
 
 [ext_resource type="PackedScene" uid="uid://caykt53ijetv8" path="res://player.tscn" id="1_5itfk"]
 [ext_resource type="Script" path="res://killzone.gd" id="2_nwacb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ctx552675ohgw" path="res://bat_3.tscn" id="5_2p4xc"]
 [ext_resource type="Script" path="res://bat_spawner.gd" id="5_n1veh"]
 [ext_resource type="Script" path="res://score_timer.gd" id="7_6tr5f"]
+[ext_resource type="AudioStream" uid="uid://c0aa5jv4mb1la" path="res://seashore.mp3" id="8_q6hs3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cgdnh"]
 
@@ -29,6 +30,7 @@ offset_left = -578.0
 offset_top = -8.0
 offset_right = 573.0
 offset_bottom = 32.0
+color = Color(0.188235, 0.188235, 0.188235, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_5itfk")]
 position = Vector2(-25, 192)
@@ -73,6 +75,11 @@ offset_right = -397.0
 offset_bottom = -225.0
 theme_override_font_sizes/font_size = 50
 text = "00:00"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_q6hs3")
+volume_db = -8.889
+autoplay = true
 
 [connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

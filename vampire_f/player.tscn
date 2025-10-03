@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://caykt53ijetv8"]
+[gd_scene load_steps=5 format=3 uid="uid://caykt53ijetv8"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4o20k"]
+[ext_resource type="AudioStream" uid="uid://ijqscsmqtxrd" path="res://jump_01.wav" id="2_wwv3e"]
+[ext_resource type="AudioStream" uid="uid://buiqmmy5v2qgi" path="res://Monster-1.wav" id="3_dyamu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdbc"]
 
@@ -17,3 +19,11 @@ color = Color(0, 0, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5mdbc")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wwv3e")
+pitch_scale = 0.93
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dyamu")
+pitch_scale = 0.93

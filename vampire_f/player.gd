@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var rect_color = $ColorRect
+@onready var jump_sound = $JumpSound
+@onready var death_sound = $DeathSound
 
 	
 
@@ -26,6 +28,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and jumps_left > 0:
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
+		jump_sound.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -51,6 +54,7 @@ func _on_killzone_body_entered(body):
 
 func apply_stun():
 	print("bat touch2")
+	death_sound.play()
 	rect_color.color = Color(0.5, 0, 0.1, 1)
 	SPEED = spdSlowed
 	JUMP_VELOCITY = jumpSlowed
