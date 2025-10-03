@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://box_1.gd" id="1_611ek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyl4m"]
-size = Vector2(20, 135.75)
+size = Vector2(20, 135.875)
 
 [node name="box1" type="AnimatableBody2D"]
 script = ExtResource("1_611ek")
@@ -14,6 +14,7 @@ scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_hyl4m")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_left = -41.0
 offset_top = 1.0
 offset_right = 41.0

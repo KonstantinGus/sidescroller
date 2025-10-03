@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var rect_color = $ColorRect
+
+	
 
 var SPEED = 300.0
 const spdSlowed = 30
@@ -48,10 +51,11 @@ func _on_killzone_body_entered(body):
 
 func apply_stun():
 	print("bat touch2")
+	rect_color.color = Color(0.5, 0, 0.1, 1)
 	SPEED = spdSlowed
 	JUMP_VELOCITY = jumpSlowed
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	SPEED = 300
 	JUMP_VELOCITY = -500
-	
+	rect_color.color = Color(0, 0, 1, 1)
 	

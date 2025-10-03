@@ -44,7 +44,7 @@ shape = SubResource("WorldBoundaryShape2D_jfxr2")
 script = ExtResource("2_nwacb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(-581, 0)
+position = Vector2(-586, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_3akja")
 
@@ -69,10 +69,10 @@ script = ExtResource("7_6tr5f")
 [node name="timer_label" type="Label" parent="ScoreTimer"]
 offset_left = -525.0
 offset_top = -294.0
-offset_right = -485.0
-offset_bottom = -271.0
+offset_right = -397.0
+offset_bottom = -225.0
 theme_override_font_sizes/font_size = 50
-text = "test"
+text = "00:00"
 
 [connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
