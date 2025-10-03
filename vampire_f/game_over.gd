@@ -10,7 +10,7 @@ func _ready():
 	final_label.text = "Your Time: %02d:%02d" % [minutes, seconds]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("restart"):
 		
 		set_process(false)
 		restart_timer.start()
