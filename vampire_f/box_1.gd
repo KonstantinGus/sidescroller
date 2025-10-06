@@ -1,7 +1,7 @@
 extends AnimatableBody2D
 
 
-const SPEED = 100
+var SPEED = Global.BackgroundSpeed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

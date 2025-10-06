@@ -1,6 +1,6 @@
 extends Area2D  # or Area2D if you prefer
 
-const SPEED = 200
+var SPEED = Global.BackgroundSpeed *2 
 
 
 	

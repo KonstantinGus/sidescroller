@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw4ipph8ufwwb"]
+
+[ext_resource type="Script" path="res://bat_spawner.gd" id="1_avpr7"]
+
+[node name="batSpawner" type="Node2D"]
+position = Vector2(3, 0)
+script = ExtResource("1_avpr7")

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var box_scene: PackedScene = preload("res://box_1.tscn")
+
 @export var spawn_interval: float = 3  # seconds between spawns
 @export var spawn_x: float = 800  # X position to spawn (offscreen right)
 @export var min_y: float = 50

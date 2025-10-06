@@ -6,11 +6,11 @@ extends CharacterBody2D
 
 	
 
-var SPEED = 300.0
+var SPEED = 300
 const spdSlowed = 30
 var JUMP_VELOCITY = -500.0
 const jumpSlowed = -100
-const BackgroundVelocity = -100
+var BackgroundVelocity = Global.BackgroundSpeed * -1
 
 const MAX_JUMPS = 2
 
@@ -43,6 +43,7 @@ func _physics_process(delta):
 
 
 
+
 func _on_killzone_body_entered(body):
 	if body == self:
 		print("you died...")
@@ -60,6 +61,6 @@ func apply_stun():
 	JUMP_VELOCITY = jumpSlowed
 	await get_tree().create_timer(3.0).timeout
 	SPEED = 300
-	JUMP_VELOCITY = -500
-	rect_color.color = Color(0, 0, 1, 1)
+	JUMP_VELOCITY = -500 
+	rect_color.color =Color(0, 0, 1, 1)
 	

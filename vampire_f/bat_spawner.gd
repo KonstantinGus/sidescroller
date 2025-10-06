@@ -11,6 +11,7 @@ extends Node2D
 var timer: Timer
 
 func _ready():
+	print("new batspawner")
 	# Create a Timer
 	timer = Timer.new()
 	add_child(timer)

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://caykt53ijetv8" path="res://player.tscn" id="1_5itfk"]
 [ext_resource type="Script" path="res://killzone.gd" id="2_nwacb"]
-[ext_resource type="Script" path="res://box_spawner.gd" id="4_5yvox"]
 [ext_resource type="PackedScene" uid="uid://cgxvd3yab0g8k" path="res://box_1.tscn" id="4_mme2q"]
+[ext_resource type="PackedScene" uid="uid://qu8cxjar8haa" path="res://box_spawner.tscn" id="4_t4ra8"]
 [ext_resource type="PackedScene" uid="uid://ctx552675ohgw" path="res://bat_3.tscn" id="5_2p4xc"]
-[ext_resource type="Script" path="res://bat_spawner.gd" id="5_n1veh"]
+[ext_resource type="PackedScene" uid="uid://bw4ipph8ufwwb" path="res://bat_spawner.tscn" id="5_tw2xi"]
 [ext_resource type="Script" path="res://score_timer.gd" id="7_6tr5f"]
 [ext_resource type="AudioStream" uid="uid://c0aa5jv4mb1la" path="res://seashore.mp3" id="8_q6hs3"]
 
@@ -53,13 +53,9 @@ shape = SubResource("WorldBoundaryShape2D_3akja")
 [node name="box1" parent="." instance=ExtResource("4_mme2q")]
 position = Vector2(446, 50)
 
-[node name="boxSpawner" type="Node2D" parent="."]
-position = Vector2(3, 0)
-script = ExtResource("4_5yvox")
+[node name="boxSpawner" parent="." instance=ExtResource("4_t4ra8")]
 
-[node name="batSpawner" type="Node2D" parent="."]
-position = Vector2(3, 0)
-script = ExtResource("5_n1veh")
+[node name="batSpawner" parent="." instance=ExtResource("5_tw2xi")]
 
 [node name="bat3" parent="." instance=ExtResource("5_2p4xc")]
 position = Vector2(159, 239)
